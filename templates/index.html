@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickDrop Secure</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="top-bar">
+    <h1>QuickDrop</h1>
+    <div id="toast"></div>
+    <button id="themeToggle">🌙</button>
+</div>
+
+<div class="dropzone" id="dropzone">
+    <p>Drop your image/video here or click to upload</p>
+    <input type="file" id="fileInput" accept="image/*,video/*">
+</div>
+
+<div id="progressContainer"><div id="progressBar"></div></div>
+
+<div id="uploadModal">
+    <div id="uploadModalContent">
+        <button class="closeModal">&times;</button>
+        <h2>File Uploaded!</h2>
+        <div>
+            <a id="modalLink" href="" target="_blank"></a>
+            <button id="modalCopyBtn">Copy</button>
+        </div>
+        <div id="modalPreview"></div>
+    </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

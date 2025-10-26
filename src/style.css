@@ -1,0 +1,253 @@
+/* === Body & Theme === */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: #fff;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+    background: #f0f0f0;
+    color: #111;
+}
+
+/* === Top Bar === */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #1f1f1f;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light .top-bar {
+    background: #ddd;
+    color: #111;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.top-bar button {
+    cursor: pointer;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+}
+
+/* === Dropzone === */
+.dropzone {
+    position: relative;
+    border: 2px dashed #555;
+    border-radius: 15px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(145deg, #1b1b1b, #141414);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #bbb;
+    font-size: 1.1em;
+}
+
+body.light .dropzone {
+    background: linear-gradient(145deg, #f5f5f5, #e0e0e0);
+    color: #333;
+    border-color: #ccc;
+}
+
+.dropzone:hover {
+    border-color: #00bfff;
+    background: linear-gradient(145deg, #222, #1a1a1a);
+    color: #fff;
+}
+
+body.light .dropzone:hover {
+    border-color: #00bfff;
+    background: linear-gradient(145deg, #e0e0e0, #d0d0d0);
+}
+
+.dropzone.dragover {
+    border-color: #00bfff;
+    background: linear-gradient(145deg, #005fbb, #003f88);
+    color: #fff;
+}
+
+body.light .dropzone.dragover {
+    border-color: #00bfff;
+    background: linear-gradient(145deg, #cce6ff, #99ccff);
+    color: #111;
+}
+
+.dropzone::before {
+    content: "📤";
+    display: block;
+    font-size: 3em;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.dropzone:hover::before,
+.dropzone.dragover::before {
+    transform: scale(1.2);
+}
+
+#fileInput {
+    display: none;
+}
+
+/* === Progress Bar === */
+#progressContainer {
+    width: 90%;
+    max-width: 600px;
+    margin: 10px auto;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    display: none;
+}
+
+body.light #progressContainer {
+    background: #ccc;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #00bfff;
+    border-radius: 5px;
+}
+
+/* === Link & Preview === */
+#link {
+    margin: 10px auto;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#link a {
+    word-break: break-all;
+    color: #00bfff;
+}
+
+#link button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: #00bfff;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+body.light #link button {
+    background: #333;
+    color: #fff;
+}
+
+#preview img,
+#preview video {
+    max-width: 90%;
+    margin: 10px auto;
+    display: block;
+    border-radius: 5px;
+}
+
+/* === Toast === */
+#toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+body.light #toast {
+    background: #ccc;
+    color: #111;
+}
+
+/* === Modal === */
+#uploadModal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease;
+}
+
+body.light #uploadModal {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+#uploadModalContent {
+    background: #1f1f1f;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    animation: slideDown 0.3s ease;
+}
+
+body.light #uploadModalContent {
+    background: #f9f9f9;
+    color: #111;
+}
+
+#uploadModalContent .closeModal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+/* Modal preview */
+#modalPreview img,
+#modalPreview video {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
